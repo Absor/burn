@@ -1,1 +1,1 @@
-<div class="ui red message" ng-show="error">{{error}}</div><div id="chart" ng-hide="error"></div>
+<div class="ui red message" ng-if="error">{{error}}</div><div id="chart" ng-if="error === undefined"></div>
