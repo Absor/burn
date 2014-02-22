@@ -17,8 +17,8 @@ angular.module('burnApp')
                     .success(function (data) {
                         deferred1.resolve(data);
                     })
-                    .error(function () {
-                        deferred1.resolve([]);
+                    .error(function (reason) {
+                        deferred3.reject(reason);
                     });
 
                 var deferred2 = $q.defer();
@@ -26,8 +26,8 @@ angular.module('burnApp')
                     .success(function (data) {
                         deferred2.resolve(data);
                     })
-                    .error(function () {
-                        deferred2.resolve([]);
+                    .error(function (reason) {
+                        deferred3.reject(reason);
                     });
 
                 var deferred3 = $q.defer();

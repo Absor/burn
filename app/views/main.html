@@ -1,10 +1,16 @@
 <div class="ui one column page grid">
     <div class="column">
-        <div class="ui segment ui-view">
-            <div class="ui action input">
-                <input type="text" placeholder="owner/repository" ng-model="url">
-                <div class="ui button" ng-click="go(url)">Burn</div>
-            </div>
+        <div class="ui segment">
+            <form name="form" class="ui form attached fluid segment" novalidate>
+                <div class="two fields">
+                    <div class="field">
+                        <input placeholder="owner/repository" type="text" ng-model="url" ng-pattern="/.+\/.+/" required>
+                    </div>
+                    <div class="field">
+                        <input class="ui red submit button" ng-click="go(url)" ng-disabled="form.$invalid" type="submit" value="Burn">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

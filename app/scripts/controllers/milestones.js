@@ -9,7 +9,7 @@ angular.module('burnApp')
                 promise.then(function (data) {
                     $scope.milestones = data;
                 }, function (reason) {
-                    alert('Failed: ' + reason);
+                    $scope.error = reason.message;
                 });
             }
         };
