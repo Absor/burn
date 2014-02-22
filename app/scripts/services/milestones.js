@@ -34,7 +34,13 @@ angular.module('burnApp')
                 $q.all([deferred1.promise, deferred2.promise])
                     .then(function (data) {
                         var combinedData = data[0].concat(data[1]);
-                        deferred3.resolve(map(combinedData));
+                        if (combinedData.length === 0) {
+                            deferred3.reject({
+                                message: 'No milestones.'
+                            });
+                        } else {
+                            deferred3.resolve(map(combinedData));
+                        }
                     }, function (reason) {
                         deferred3.reject(reason);
                     });

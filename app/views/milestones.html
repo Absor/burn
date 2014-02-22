@@ -6,14 +6,15 @@
                 Milestones
                 <div class="menu">
                     <div class="item" ng-repeat="milestone in milestones" ng-click="go(milestone.number)">{{milestone.title}}</div>
+                    <div class="item" ng-if="error">No milestones.</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="column">
         <div class="ui segment ui-view">
-            <div class="ui yellow message" ng-hide="error">Please select a milestone.</div>
-            <div class="ui red message" ng-show="error">{{error}}</div>
+            <div class="ui yellow message" ng-if="error === undefined">Please select a milestone.</div>
+            <div class="ui red message" ng-if="error">{{error}}</div>
         </div>
     </div>
 </div>
