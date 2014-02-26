@@ -52,7 +52,13 @@ angular.module('burnApp')
             if (data[0].milestone.due_on == null) {
                 endDate = moment();
             } else {
-                endDate = moment(data[0].milestone.due_on);
+                var dueDate = moment(data[0].milestone.due_on);
+                var updatedDate = moment(data[0].milestone.updated_at);
+                if (updatedDate.isAfter(dueDate, 'day')) {
+                    endDate = updatedDate;
+                } else {
+                    endDate = dueDate;
+                }
             }
 
             var now = moment();
